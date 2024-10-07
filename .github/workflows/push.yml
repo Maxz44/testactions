@@ -1,7 +1,9 @@
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
+    inputs:
+      name:
+        description: name
+        type: string
 
 jobs:
   push:
