@@ -5,11 +5,17 @@ on:
     inputs:
       name:
         description: a name
-        default: max
         
 
 jobs:
   push:
     runs-on: ubuntu-latest
     steps:
-      - run: echo -${{ inputs.name }}-
+      - 
+        id: env_name
+        run: |
+          if [[ -z "${{ inputs.name }}" ]]; then
+            echo ${{ github.ref_name }}
+          else 
+            echo ${{ inputs.name }}
+          fi
