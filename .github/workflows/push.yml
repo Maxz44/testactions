@@ -5,7 +5,8 @@ on:
     inputs:
       name:
         description: a name
-        required: true
+        default: max
+        
 
 jobs:
   push:
