@@ -5,6 +5,7 @@ on:
     inputs:
       name:
         description: a name
+        required: true
 
 jobs:
   push:
