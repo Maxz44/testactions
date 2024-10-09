@@ -8,6 +8,7 @@ on:
       deploy_front:
         type: boolean
         description: "deploy_front: Should deploy front"
+        default: true
 
 jobs:
   push:
