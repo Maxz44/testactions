@@ -8,6 +8,7 @@ on:
       back_branch:
         description: "back_branch: the back_branch to use"
         required: true
+        default: develop
       deploy_front:
         type: boolean
         description: "deploy_front: Should deploy front"
