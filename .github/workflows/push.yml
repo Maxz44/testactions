@@ -5,23 +5,25 @@ on:
     inputs:
       name:
         description: a name
-        
+      deploy_front:
+        type: boolean
+        description: "deploy_front: Should deploy front"
 
 jobs:
   push:
     runs-on: ubuntu-latest
     steps:
-      - 
-        # Default env name to branch name
+      - # Default env name to branch name
         id: env_name
         name: env name or branch name
         run: |
           echo -n "name=" >> "$GITHUB_OUTPUT"
           if [[ -z "${{ inputs.name }}" ]]; then
             echo ${{ github.ref_name }} >> "$GITHUB_OUTPUT"
-          else 
+          else
             echo ${{ inputs.name }} >> "$GITHUB_OUTPUT"
           fi
-      -
-        name: print output
+      - name: print output
         run: echo ${{ steps.env_name.outputs.name }}
+      - name: print choice
+        run: echo ${{ inputs.deploy_front }}
