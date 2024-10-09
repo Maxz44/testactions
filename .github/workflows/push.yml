@@ -7,6 +7,7 @@ on:
         description: "env_name: if empty, will use the front branch"
       back_branch:
         description: "back_branch: the back_branch to use"
+        required: true
       deploy_front:
         type: boolean
         description: "deploy_front: Should deploy front"
