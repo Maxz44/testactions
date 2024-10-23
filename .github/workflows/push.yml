@@ -10,4 +10,4 @@ jobs:
       - name: print
         run: echo $NAME
         env:
-          NAME: max
+          NAME: max-$(date)
