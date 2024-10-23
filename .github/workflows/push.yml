@@ -2,37 +2,12 @@ name: on push
 
 on:
   workflow_dispatch:
-    inputs:
-      env_name:
-        description: "env_name: if empty, will use the front branch"
-      back_branch:
-        description: "back_branch: the back_branch to use"
-        required: true
-        default: develop
-      deploy_front:
-        type: boolean
-        description: "deploy_front: Should deploy front"
-        default: true
-      deploy_back:
-        type: boolean
-        description: "deploy_back: Should deploy back"
-        default: true
+
 jobs:
   push:
     runs-on: ubuntu-latest
     steps:
-      - # Default env name to branch name
-        id: env_name
-        name: env name or branch name
-        run: |
-          echo -n "name=" >> "$GITHUB_OUTPUT"
-          if [[ -z "${{ inputs.env_name }}" ]]; then
-            echo ${{ github.ref_name }} >> "$GITHUB_OUTPUT"
-          else
-            echo ${{ inputs.env_name }} >> "$GITHUB_OUTPUT"
-          fi
-      - name: print output
-        run: echo ${{ steps.env_name.outputs.name }}
-      - name: print choice
-        if: inputs.deploy_front
-        run: echo ${{ inputs.deploy_front }}
+      - name: print
+        run: echo $NAME
+        env:
+          NAME: max
