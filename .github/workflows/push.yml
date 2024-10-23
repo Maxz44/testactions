@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print
-        run: echo $NAME
+        run: echo $NAME$(date)
         env:
-          NAME: max-$(date)
+          NAME: max
