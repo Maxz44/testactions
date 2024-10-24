@@ -17,3 +17,4 @@ jobs:
           pwd
       - name: print cwd
         run: pwd
+        working-directory: some/deep/level/folder
