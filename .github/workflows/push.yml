@@ -7,7 +7,13 @@ jobs:
   push:
     runs-on: ubuntu-latest
     steps:
-      - name: print
-        run: echo $NAME$(date)
-        env:
-          NAME: max
+      - name: create some random folder
+        run: mkdir -p some/deep/level/folder
+      - name: print cwd
+        run: pwd
+      - name: change dir
+        run: |
+          cd some/deep/level/folder
+          pwd
+      - name: print cwd
+        run: pwd
