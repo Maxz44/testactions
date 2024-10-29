@@ -10,4 +10,4 @@ jobs:
       - name: set variable
         id: name
         run: echo name=max >> "$GITHUB_OUTPUT"
-      - run: echo ${{ steps.name.outputs.name }} | busybox hexdump -c
+      - run: echo -n ${{ steps.name.outputs.name }} | busybox hexdump -c
