@@ -6,6 +6,7 @@ on:
       name:
         description: "your name"
         type: string
+  delete:
 
 jobs:
   say-hi:
