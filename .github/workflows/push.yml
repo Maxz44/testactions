@@ -1,13 +1,15 @@
 name: on push
 
 on:
-  push:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "your name"
+        type: string
 
 jobs:
-  push:
+  say-hi:
     runs-on: ubuntu-latest
     steps:
-      - name: set variable
-        id: name
-        run: echo name=max >> "$GITHUB_OUTPUT"
-      - run: echo -n ${{ steps.name.outputs.name }} | busybox hexdump -c
+      - name: hi
+        run: echo "Hello ${{ inputs.name }}"
