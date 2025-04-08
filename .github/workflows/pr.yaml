@@ -10,5 +10,7 @@ jobs:
       - name: Get pr number
         id: pr_number
         run: >
-          echo -n name= >> "$GITHUB_OUTPUT"
+          echo -n number= >> "$GITHUB_OUTPUT"
           echo "${{ github.ref }}" | cut -d/ -f3 >> "$GITHUB_OUTPUT"
+      - name: hi
+        run: echo ${{ steps.pr_number.outputs.pr_number.number }}
