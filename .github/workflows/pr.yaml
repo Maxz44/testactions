@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Get pr number
         id: pr_number
-        run: >
+        run: |
           echo -n number= >> "$GITHUB_OUTPUT"
           echo "${{ github.ref }}" | cut -d/ -f3 >> "$GITHUB_OUTPUT"
       - name: hi
