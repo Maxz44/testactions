@@ -1,0 +1,11 @@
+name: on pr changes
+
+on:
+  pull_request:
+
+jobs:
+  hi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hi
+        run: echo hi from pr

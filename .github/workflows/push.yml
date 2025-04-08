@@ -1,19 +1,13 @@
 name: on push
 
 on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: "your name"
-        type: string
-  delete:
+  push:
+    branches:
+      - main
 
 jobs:
   say-hi:
     runs-on: ubuntu-latest
     steps:
       - name: hi
-        env:
-          my_name: ${{ inputs.name }}
-          branch_name: ${{ github.event.ref }}${{ github.ref_name }}
-        run: echo "Hello <${my_name:-${branch_name}}>"
+        run: echo "Hello World"
