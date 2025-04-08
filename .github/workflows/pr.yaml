@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Hi
-        run: echo hi from ${{ github }}
+        run: echo hi from ${{ github.base_ref }}
