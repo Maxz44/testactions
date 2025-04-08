@@ -13,4 +13,4 @@ jobs:
           echo -n number= >> "$GITHUB_OUTPUT"
           echo "${{ github.ref }}" | cut -d/ -f3 >> "$GITHUB_OUTPUT"
       - name: hi
-        run: echo ${{ steps.pr_number.outputs.number }}
+        run: gh pr comment ${{ steps.pr_number.outputs.number }} --body "Hi from GitHub CLI"
