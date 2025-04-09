@@ -7,12 +7,26 @@ jobs:
   hi:
     runs-on: ubuntu-latest
     steps:
-      - name: Get pr number
-        id: pr_number
+      - name: install tfplandoc
         run: |
-          echo -n number= >> "$GITHUB_OUTPUT"
-          echo "${{ github.ref }}" | cut -d/ -f3 >> "$GITHUB_OUTPUT"
-      - name: hi
+          wget -O tfplandoc.zip https://github.com/Azure/tfplandoc/releases/download/v0.4.1/tfplandoc_0.4.1_linux_amd64.zip
+          unzip tfplandoc.zip
+          mv tfplandoc_v0.4.1 /bin/tfplandoc
+          type tfplandoc
+      - name: Create comment file
+        run: |
+          echo "# Salutation" > comment.md
+          echo "" >> comment.md
+          echo "Hello from a md file" >> comment.md
+      - name: Create comment from file
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh pr comment ${{ steps.pr_number.outputs.number }} --edit-last --create-if-none --body "Hi from GitHub CLI again!" --repo "${{ github.repository }}"
+        run: >
+          gh pr comment
+          $(echo ${{ github.ref }} | cut -d/ -f3)
+          --edit-last
+          --create-if-none
+          --body-file
+          comment.md
+          --repo
+          "${{ github.repository }}"
