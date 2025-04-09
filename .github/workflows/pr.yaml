@@ -17,7 +17,7 @@ jobs:
         run: |
           echo "# Salutation" > comment.md
           echo "" >> comment.md
-          echo "Hello from a md file" >> comment.md
+          echo "Hello from a md file ${{ github.sha }}" >> comment.md
       - name: Create comment from file
         env:
           GH_TOKEN: ${{ github.token }}
