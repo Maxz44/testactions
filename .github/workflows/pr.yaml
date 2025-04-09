@@ -11,7 +11,7 @@ jobs:
         run: |
           wget -O tfplandoc.zip https://github.com/Azure/tfplandoc/releases/download/v0.4.1/tfplandoc_0.4.1_linux_amd64.zip
           unzip tfplandoc.zip
-          mv tfplandoc_v0.4.1 /bin/tfplandoc
+          sudo mv tfplandoc_v0.4.1 /bin/tfplandoc
           type tfplandoc
       - name: Create comment file
         run: |
