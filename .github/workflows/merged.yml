@@ -1,0 +1,14 @@
+name: on pr closed
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  say-hi:
+    if: github.event.pull_request.merged
+    runs-on: ubuntu-latest
+    steps:
+      - name: hi
+        run: echo ${{ github.ref }}
